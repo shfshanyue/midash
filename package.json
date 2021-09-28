@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/midash.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -33,7 +34,6 @@
     "trailingComma": "es5"
   },
   "author": "shfshanyue",
-  "module": "dist/midash.esm.js",
   "size-limit": [
     {
       "path": "dist/midash.cjs.production.min.js",
