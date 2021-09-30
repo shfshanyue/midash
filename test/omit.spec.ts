@@ -1,6 +1,6 @@
 import { omit } from '../src';
 
-describe('pick', function() {
+describe('omit', function() {
   const object = { a: 1, b: 2, c: 3, d: 4 };
 
   it('should work', function() {

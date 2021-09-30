@@ -6,3 +6,5 @@ export * from './omitBy';
 export * from './pickBy';
 export * from './pick';
 export * from './omit';
+export * from './groupBy';
+export * from './keyBy';
