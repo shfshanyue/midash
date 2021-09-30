@@ -21,7 +21,6 @@
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -45,7 +44,7 @@
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^5.0.3",
+    "@size-limit/preset-small-lib": "^4.5.5",
     "husky": "^7.0.2",
     "release-it": "^14.11.6",
     "size-limit": "^5.0.3",
