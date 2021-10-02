@@ -9,6 +9,7 @@
 
 An alternative to `lodash` with the same API. 
 
++ 🔨 High frequency API
 + 🕒 Familiar lodash API
 + 💪 Support Tree Shaking
 + 👫 Support Typescript
@@ -26,7 +27,11 @@ An alternative to `lodash` with the same API.
 
 ### Array
 
++ chunk
 + sample
 + sampleSize
 + shuffle
 + uniq
++ groupBy
++ keyBy
++ get

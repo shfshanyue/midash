@@ -8,3 +8,4 @@ export * from './pick';
 export * from './omit';
 export * from './groupBy';
 export * from './keyBy';
+export * from './chunk';
