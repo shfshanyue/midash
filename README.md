@@ -20,6 +20,7 @@ An alternative to `lodash` with the same API.
 
 ### Object
 
++ get
 + omit
 + omitBy
 + pick
