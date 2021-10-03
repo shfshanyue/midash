@@ -1,6 +1,6 @@
 # Midash
 
-![Npm Version](https://badgen.net/npm/v/midash)
+[![Npm Version](https://badgen.net/npm/v/midash)](https://npmjs.com/package/midash)
 ![Node Version](https://badgen.net/npm/node/midash)
 ![Type Support](https://badgen.net/npm/types/midash)
 ![Tree Shaking Support](https://badgen.net/bundlephobia/tree-shaking/midash)

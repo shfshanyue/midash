@@ -2,6 +2,7 @@
   "name": "midash",
   "description": "An alternative to lodash with the same API.",
   "version": "0.2.3",
+  "sideEffects": false,
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/midash.esm.js",
@@ -34,6 +35,7 @@
     "trailingComma": "es5"
   },
   "author": "shfshanyue",
+  "repository": "shfshanyue/midash",
   "size-limit": [
     {
       "path": "dist/midash.cjs.production.min.js",
@@ -52,5 +54,12 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.4.3"
-  }
+  },
+  "keywords": [
+    "utils",
+    "utilities",
+    "toolkit",
+    "pure",
+    "functional"
+  ]
 }
