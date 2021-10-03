@@ -1,18 +1,18 @@
-import { chunk } from '../src';
+import { chunk } from '../src'
 
 describe('chunk', function() {
-  const array = [0, 1, 2, 3, 4, 5];
+  const array = [0, 1, 2, 3, 4, 5]
 
   it('should work', function() {
-    const actual = chunk(array, 3);
+    const actual = chunk(array, 3)
     expect(actual).toEqual([
       [0, 1, 2],
       [3, 4, 5],
-    ]);
-  });
+    ])
+  })
 
   it('should work with no size argument', function() {
-    const actual = chunk(array);
-    expect(actual).toEqual([[0], [1], [2], [3], [4], [5]]);
-  });
-});
+    const actual = chunk(array)
+    expect(actual).toEqual([[0], [1], [2], [3], [4], [5]])
+  })
+})

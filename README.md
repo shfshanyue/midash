@@ -14,7 +14,7 @@ An alternative to `lodash` with the same API.
 + 💪 Support Tree Shaking
 + 👫 Support Typescript
 + 🔥 Smaller Size (with ES6+ API)
-+ 📦 10kb mini library
++ 📦 1.5kb mini library
 
 ## API
 

@@ -4,5 +4,5 @@ export function pickBy<T>(
 ) {
   return Object.fromEntries(
     Object.entries(obj).filter(([key, value]) => Boolean(predicate(value, key)))
-  );
+  )
 }

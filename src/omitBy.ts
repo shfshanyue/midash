@@ -6,5 +6,5 @@ export function omitBy<T>(
     Object.entries(obj).filter(
       ([key, value]) => !Boolean(predicate(value, key))
     )
-  );
+  )
 }

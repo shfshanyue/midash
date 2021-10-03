@@ -1,5 +1,6 @@
 {
   "name": "midash",
+  "description": "An alternative to lodash with the same API.",
   "version": "0.2.3",
   "license": "MIT",
   "main": "dist/index.js",
@@ -28,7 +29,7 @@
   },
   "prettier": {
     "printWidth": 80,
-    "semi": true,
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
   },
