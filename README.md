@@ -25,6 +25,7 @@ An alternative to `lodash` with the same API.
 + omitBy
 + pick
 + pickBy
++ defaults
 
 ### Array
 
@@ -36,3 +37,9 @@ An alternative to `lodash` with the same API.
 + groupBy
 + keyBy
 + get
+
+### String
+
++ camelCase
++ snakeCase
++ kebabCase
