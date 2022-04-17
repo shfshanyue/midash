@@ -24,7 +24,7 @@
     "build": "microbundle",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "microbundle",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
