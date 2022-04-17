@@ -4,8 +4,13 @@
   "version": "0.2.7",
   "sideEffects": false,
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/midash.esm.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -16,7 +21,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "microbundle",
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
@@ -47,15 +52,16 @@
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^5.0.5",
-    "@typescript-eslint/parser": "^4.32.0",
-    "eslint": "^7.32.0",
-    "husky": "^7.0.2",
-    "release-it": "^14.11.6",
-    "size-limit": "^5.0.5",
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@typescript-eslint/parser": "^5.19.0",
+    "eslint": "^8.13.0",
+    "husky": "^7.0.4",
+    "microbundle": "^0.14.2",
+    "release-it": "^14.14.2",
+    "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
-    "typescript": "^4.4.3"
+    "typescript": "^4.6.3"
   },
   "keywords": [
     "utils",
