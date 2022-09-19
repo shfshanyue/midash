@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "microbundle",
+    "build": "microbundle --compress false",
     "test": "tsdx test",
     "lint": "eslint",
     "prepare": "microbundle",
