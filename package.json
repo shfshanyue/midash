@@ -26,7 +26,8 @@
     "lint": "tsdx lint",
     "prepare": "microbundle",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "release": "release-it"
   },
   "husky": {
     "hooks": {
