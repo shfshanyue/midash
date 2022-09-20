@@ -24,7 +24,7 @@
     "build": "microbundle --compress false",
     "test": "tsdx test",
     "lint": "eslint",
-    "prepare": "microbundle",
+    "prepare": "npm run build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "release": "release-it"
