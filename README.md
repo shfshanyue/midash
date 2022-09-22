@@ -26,6 +26,7 @@ An alternative to `lodash` with the same API.
 + pick
 + pickBy
 + defaults
++ merge
 
 ### Array
 
@@ -43,3 +44,13 @@ An alternative to `lodash` with the same API.
 + camelCase
 + snakeCase
 + kebabCase
+
+### String
+
++ random
+
+### Lang
+
++ isArray
++ isObject
++ isPlainObject
