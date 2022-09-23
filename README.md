@@ -56,3 +56,7 @@ An alternative to `lodash` with the same API.
 + isPlainObject
 + isTypedArray
 + isEqual
+
+### Util
+
++ range
