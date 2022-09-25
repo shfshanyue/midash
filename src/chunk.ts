@@ -1,4 +1,4 @@
-export function chunk<T>(list: T[], size: number = 1): T[][] {
+export function chunk<T>(list: ArrayLike<T>, size: number = 1): T[][] {
   const l: T[][] = []
   for (let i = 0; i < list.length; i++) {
     const index = Math.floor(i / Math.floor(size))
