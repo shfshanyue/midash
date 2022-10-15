@@ -18,49 +18,16 @@ An alternative to `lodash` with the same API.
 
 ## API
 
-### Object
+[Documentation](https://midash.devtool.tech/)
 
-+ get
-+ omit
-+ omitBy
-+ pick
-+ pickBy
-+ defaults
-+ merge
+## Installation
 
-### Array
+``` bash
+$ yarn add midash
+```
 
-+ chunk
-+ sample
-+ sampleSize
-+ shuffle
-+ uniq
-+ groupBy
-+ keyBy
-+ get
+``` js
+import { sum } from 'midash'
 
-### String
-
-+ camelCase
-+ snakeCase
-+ kebabCase
-
-### String
-
-+ random
-
-### Lang
-
-+ isArray
-+ isObject
-+ isPlainObject
-+ isTypedArray
-+ isEqual
-
-### Util
-
-+ range
-
-### Math
-
-+ sum
+sum([1, 3, 5, 7, 9])
+```

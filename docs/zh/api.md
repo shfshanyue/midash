@@ -3,6 +3,22 @@
 ## Object
 
 ### get
+
+Get the attribute of object deeply.
+
+``` js
+const object = { a: [{ b: 3 }] }
+ 
+// => 3
+_.get(object, 'a[0].b')
+ 
+// => 3
+_.get(object, ['a', '0', 'b'])
+ 
+// => 'default'
+_.get(object, 'a.b.c', 'default')
+```
+
 ### omit
 ### omitBy
 ### pick

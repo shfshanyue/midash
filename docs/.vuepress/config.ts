@@ -1,4 +1,5 @@
 import { defaultTheme } from '@vuepress/theme-default'
+import { getDirname, logger, path } from '@vuepress/utils'
 
 export default {
   head: [
@@ -28,6 +29,7 @@ export default {
     logo: '/midash.svg',
     home: '/',
     docsRepo: 'shfshanyue/midash',
+    repo: 'shfshanyue/midash',
     locales: {
       /**
        * English locale config
@@ -89,4 +91,10 @@ export default {
       },
     },
   }),
+  plugins: [
+    {
+      name: 'midash API',
+      clientConfigFile: path.resolve(__dirname, './midash.ts'),
+    }
+  ]
 }
