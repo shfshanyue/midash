@@ -60,3 +60,7 @@ An alternative to `lodash` with the same API.
 ### Util
 
 + range
+
+### Math
+
++ sum
