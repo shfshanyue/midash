@@ -1,6 +1,17 @@
 import { defaultTheme } from '@vuepress/theme-default'
 
 export default {
+  head: [
+    [
+      'link',
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        sizes: '16x16',
+        href: `/midash.svg`,
+      },
+    ]
+  ],
   locales: {
     '/': {
       lang: 'en-US',
