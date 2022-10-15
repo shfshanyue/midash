@@ -7,6 +7,10 @@ describe('omit', function() {
     const actual = omit(object, ['a', 'c', 'z'])
 
     expect(actual).toEqual({ b: 2, d: 4 })
+
+    expect(omit(object)).toEqual(object)
+
+    expect(omit(undefined)).toEqual({})
   })
 
   it('should work with second arguments', function() {

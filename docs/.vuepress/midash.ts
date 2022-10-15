@@ -17,9 +17,9 @@ export default defineClientConfig({
       globalThis._ = o
     })
 
-    context.app.use(context.router)
-    if (globalThis.navigator?.language?.includes('zh')) {
-      context.router.push('/zh/')
-    }
+    // context.app.use(context.router)
+    // if (globalThis.navigator?.language?.includes('zh')) {
+    //   context.router.push('/zh/')
+    // }
   },
 })

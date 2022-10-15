@@ -21,6 +21,23 @@ _.get(object, 'a.b.c', 'default')
 
 ### omit
 
+Ingore attributes of object and return new object.
+
+::: warning
+`_.omit(object, 'a', 'b')` can't work well in midash.
+:::
+
+``` js
+const object = {
+  a: 3,
+  b: 4,
+  c: 5
+}
+
+//=> { c: 5 }
+_.omit(object, ['a', 'b'])
+```
+
 ### omitBy
 
 ### pick
