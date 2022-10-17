@@ -24,7 +24,7 @@ _.get(object, 'a.b.c', 'default')
 忽略 `object` 的某些属性，并返回新的 `object`。
 
 ::: warning
-在 `midash` 中无法使用 `_.omit(object, 'a', 'b')`。
+在 `midash` 中无法使用 `_.omit(object, 'a', 'b')`，请使用 `_.omit(object, ['a', 'b'])` 替代。
 :::
 
 ``` js
@@ -40,9 +40,80 @@ _.omit(object, ['a', 'b'])
 ```
 
 ### omitBy
+
+通过函数忽略 `object` 的某些属性，并返回新的 `object`。
+
+``` js
+const object = {
+  a: 3,
+  b: 4,
+  c: 5
+}
+
+// 通过 value 进行筛选忽略
+//=> { b:4, c: 5 }
+_.omitBy(object, value => value === 3)
+
+// 通过 key 进行筛选忽略
+//=> { b:4, c: 5 }
+_.omitBy(object, (value, key) => key === 'a')
+```
+
 ### pick
+
+选择 `object` 的某些属性，并返回新的 `object`。
+
+::: warning
+在 `midash` 中无法使用 `_.pick(object, 'a', 'b')`，请使用 `_.pick(object, ['a', 'b'])` 替代。
+:::
+
+``` js
+const object = {
+  a: 3,
+  b: 4,
+  c: undefined
+}
+
+//=> { a: 3, b: 4 }
+_.pick(object, ['a', 'b'])
+
+//=> {}
+_.pick(object, ['z'])
+
+//=> { c: undefined }
+_.pick(object, ['c'])
+```
+
 ### pickBy
+
+通过函数选择 `object` 的某些属性，并返回新的 `object`。
+
+``` js
+const object = {
+  a: 3,
+  b: 4,
+}
+
+//=> { a: 3 }
+_.pickBy(object, value => value === 3)
+
+//=> { a: 3 }
+_.pickBy(object, (value, key) => key === 'a')
+```
+
 ### defaults
+
+``` js
+//=> { mode: 'development', sourcemap: true, devtool: true }
+_.defaults({
+  mode: 'development',
+  sourcemap: true
+}, {
+  mode: 'production',
+  devtool: true
+})
+```
+
 ### merge
 
 ## Array

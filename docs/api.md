@@ -24,7 +24,7 @@ _.get(object, 'a.b.c', 'default')
 Ingore attributes of object and return new object.
 
 ::: warning
-`_.omit(object, 'a', 'b')` can't work well in midash.
+`_.omit(object, 'a', 'b')` can't work well in midash. use `_.omit(object, ['a', 'b'])` instead.
 :::
 
 ``` js
@@ -40,10 +40,79 @@ _.omit(object, ['a', 'b'])
 
 ### omitBy
 
+Ingore attributes of object by function and return new object.
+
+``` js
+const object = {
+  a: 3,
+  b: 4,
+  c: 5
+}
+
+// omit by value
+//=> { b:4, c: 5 }
+_.omitBy(object, value => value === 3)
+
+// omit by key
+//=> { b:4, c: 5 }
+_.omitBy(object, (value, key) => key === 'a')
+```
+
 ### pick
 
+Pick attributes of object by function and return new object.
+
+::: warning
+`_.pick(object, 'a', 'b')` can't work well in midash, use `_.pick(object, ['a', 'b'])` instead.
+:::
+
+``` js
+const object = {
+  a: 3,
+  b: 4,
+  c: undefined
+}
+
+//=> { a: 3, b: 4 }
+_.pick(object, ['a', 'b'])
+
+//=> {}
+_.pick(object, ['z'])
+
+//=> { c: undefined }
+_.pick(object, ['c'])
+```
+
 ### pickBy
+
+通过函数选择 `object` 的某些属性，并返回新的 `object`。
+
+``` js
+const object = {
+  a: 3,
+  b: 4,
+}
+
+//=> { a: 3 }
+_.pickBy(object, value => value === 3)
+
+//=> { a: 3 }
+_.pickBy(object, (value, key) => key === 'a')
+```
+
 ### defaults
+
+``` js
+//=> { mode: 'development', sourcemap: true, devtool: true }
+_.defaults({
+  mode: 'development',
+  sourcemap: true
+}, {
+  mode: 'production',
+  devtool: true
+})
+```
+
 ### merge
 
 ## Array

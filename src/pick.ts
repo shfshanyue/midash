@@ -6,7 +6,13 @@ export function pick<T extends object, K extends keyof T>(
 export function pick<T>(obj: T, paths?: string[]): Partial<T>
 
 export function pick(obj: object, paths: string[] = []) {
-  return Object.fromEntries(
-    Object.entries(obj).filter(([key]) => paths.includes(key))
-  )
+  if (!obj) {
+    return {}
+  }
+  return paths.reduce((acc, key) => {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      acc[key] = (obj as any)[key]
+    }
+    return acc
+  }, {} as any)
 }

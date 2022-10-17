@@ -3,6 +3,11 @@ import { pickBy } from '../src'
 describe('pickBy', function() {
   const object = { a: 1, b: 2, c: 3, d: 4 }
 
+  it('should work', function() {
+    expect(pickBy(object, x => x === 3)).toEqual({ c: 3 })
+    expect(pickBy(object, undefined as unknown as () => boolean)).toEqual(object)
+  })
+
   it('should work with value', function() {
     const actual = pickBy(object, function(n) {
       return n === 1 || n === 3
