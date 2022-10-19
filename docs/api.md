@@ -171,6 +171,19 @@ merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
 
 ## Util
 
+### compose/flowRight
+
+从右至左执行函数，并将上一个函数的返回值作为下一个函数的参数。`flowRight` is an alias to `compose`.
+
+``` js
+const double = x => x * 2
+const square = x => x * x
+
+//=> 200
+_.compose(double, square)(10)
+_.flowRight(double, square)(10)
+```
+
 ### range
 
 ## Math
