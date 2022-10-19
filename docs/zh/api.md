@@ -114,7 +114,30 @@ _.defaults({
 })
 ```
 
+### clone
+
+浅拷贝对象属性
+
+``` js
+const o = { a: { aa: 3 }, b: 4 }
+
+//=> true
+_.clone(o).a === o.a
+```
+
+### cloneDeep
+
+递归拷贝对象属性
+
+``` js
+const o = { a: { aa: 3 }, b: 4 }
+
+//=> false
+_.cloneDeep(o).a === o.a
+```
+
 ### merge
+
 
 ## Array
 

@@ -113,6 +113,24 @@ _.defaults({
 })
 ```
 
+### clone
+
+``` js
+const o = { a: { aa: 3 }, b: 4 }
+
+//=> true
+_.clone(o).a === o.a
+```
+
+### cloneDeep
+
+``` js
+const o = { a: { aa: 3 }, b: 4 }
+
+//=> false
+_.cloneDeep(o).a === o.a
+```
+
 ### merge
 
 ## Array
