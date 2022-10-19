@@ -1,7 +1,7 @@
 {
   "name": "midash",
   "description": "An alternative to lodash with the same API.",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "sideEffects": false,
   "license": "MIT",
   "exports": {
