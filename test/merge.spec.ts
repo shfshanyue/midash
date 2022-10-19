@@ -63,4 +63,13 @@ describe('merge', function () {
 
     expect(actual).toEqual({ a: {} })
   })
+
+  it('should work with deepClone', function () {
+    const o = {
+      a: { b: 3 }
+    }
+
+    expect(merge({}, o).a).toEqual(o.a)
+    expect(merge({}, o).a).not.toBe(o.a)
+  })
 })

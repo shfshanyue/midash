@@ -14,10 +14,17 @@ export function clone<T>(obj: T): T {
       ...obj
     }
   }
+  // TODO: Date/Buffer/Regexp
   return obj
 }
 
 export function cloneDeep<T extends object>(obj: T): T {
+  if (!isArray(obj) && !isPlainObject(obj)) {
+    return clone(obj)
+  }
+  if (isArray(obj)) {
+    return (obj as any).map((x: any) => cloneDeep(x))
+  }
   return Object.keys(obj).reduce((acc, key) => {
     let value = (obj as any)[key]
     if (!isPrimitive(value)) {

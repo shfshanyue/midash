@@ -133,6 +133,13 @@ _.cloneDeep(o).a === o.a
 
 ### merge
 
+Merges one or more objects into first object recursively and return new object.
+
+``` js
+//=> { a: 4, b: 2 }
+merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
+```
+
 ## Array
 
 ### chunk
