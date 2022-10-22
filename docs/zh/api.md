@@ -150,6 +150,22 @@ merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
 ### chunk
 ### sample
 ### sampleSize
+
+### difference/differenceBy
+
+:::  tip
+在 `midash` 中，`differenceBy` 是 `difference` 的别名。
+:::
+
+``` js
+//=> [2, 4]
+difference([1, 2, 3, 4], [1, 3, 5])
+
+//=> [{ a: 4 }]
+differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
+
+```
+
 ### shuffle
 ### uniq
 ### groupBy
