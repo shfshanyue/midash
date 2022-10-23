@@ -178,9 +178,52 @@ differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
 ## Lang
 
 ### isArray
+
+``` js
+//=> true
+_.isArray([])
+```
+
 ### isObject
+
+``` js
+//=> true
+_.isObject({})
+
+//=> true
+_.isObject([])
+
+//=> true
+_.isObject(x => {})
+```
+
 ### isPlainObject
+
+``` js
+//=> true
+_.isPlainObject({})
+
+//=> true
+_.isPlainObject(Object.create(null))
+
+//=> false
+_.isPlainObject(new Date())
+```
+
+### isPromise
+
+``` js
+//=> true
+_.isPromise(Promise.resolve())
+```
+
 ### isTypedArray
+
+``` js
+//=> true
+_.isTypedArray(new Uint8Array([1, 2, 3]))
+```
+
 ### isEqual
 
 ## Util
