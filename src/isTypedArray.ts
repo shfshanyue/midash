@@ -12,5 +12,5 @@ type TypedArray =
   | Float64Array;
 
 export function isTypedArray<T extends TypedArray = TypedArray>(value?: any): value is T {
-  return value.length && ArrayBuffer.isView(value)
+  return value.length !== undefined && ArrayBuffer.isView(value)
 }
