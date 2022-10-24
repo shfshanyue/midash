@@ -180,7 +180,22 @@ differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
 
 ## String
 
+## Number
+
 ### random
+
+获取一个随机整数
+
+``` js
+// 10 到 20 之间的一个随机整数，闭区间，包括 10 与 20
+_.random(10, 20)
+
+// 0 到 20 之间的一个随机整数
+_.random(20)
+
+// 0 到 1 之间的一个随机整数
+_.random()
+```
 
 ## Lang
 
@@ -258,20 +273,36 @@ _.flowRight(double, square)(10)
 
 获取数字数组中最大的值。如果数组为空或者不存在，则返回 `undefined`。
 
-``` js
-import { max } from 'midash'
+:::  tip
+在 `midash` 中，`maxBy` 是 `max` 的别名。
+:::
 
+``` js
 // => 5
-max([-5, -3, 0, 3, 5])
+_.max([-5, -3, 0, 3, 5])
+
+// => { a: 4 }
+_.maxBy([
+  { a: 3 },
+  { a: 4 }
+], x => x.a)
 ```
 
 ### min
 
 获取数字数组中最小的值。如果数组为空或者不存在，则返回 `undefined`。
 
-``` js
-import { min } from 'midash'
+:::  tip
+在 `midash` 中，`minBy` 是 `min` 的别名。
+:::
 
+``` js
 // => -5
-min([-5, -3, 0, 3, 5])
+_.min([-5, -3, 0, 3, 5])
+
+// => { a: 3 }
+_.minBy([
+  { a: 3 },
+  { a: 4 }
+], x => x.a)
 ```

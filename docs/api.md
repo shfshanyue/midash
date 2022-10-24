@@ -173,7 +173,22 @@ differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
 
 ## String
 
+## Number
+
 ### random
+
+Get the random integer.
+
+``` js
+// an integer between 10 and 20, includes 10 and 20
+_.random(10, 20)
+
+// an integer between 0 and 20
+_.random(20)
+
+// an integer between 0 and 1
+_.random()
+```
 
 ## Lang
 
@@ -230,7 +245,9 @@ _.isTypedArray(new Uint8Array([1, 2, 3]))
 
 ### compose/flowRight
 
-从右至左执行函数，并将上一个函数的返回值作为下一个函数的参数。`flowRight` is an alias to `compose`.
+从右至左执行函数，并将上一个函数的返回值作为下一个函数的参数。
+
+`flowRight` is an alias to `compose`.
 
 ``` js
 const double = x => x * 2
@@ -251,20 +268,34 @@ _.flowRight(double, square)(10)
 
 Get the maximum value from an array. If array is empty or falsy, `undefined` is returned.
 
-``` js
-import { max } from 'midash'
+In `midash`，`maxBy` is an alias to `max`.
 
+``` js
 // => 5
-max([-5, -3, 0, 3, 5])
+_.max([-5, -3, 0, 3, 5])
+
+// => { a: 4 }
+_.maxBy([
+  { a: 3 },
+  { a: 4 }
+], x => x.a)
 ```
 
 ### min
 
 Get the minimum value from an array. If array is empty or falsy, `undefined` is returned.
 
-``` js
-import { min } from 'midash'
+:::  tip
+In `midash`，`minBy` is an alias to `min`.
+:::
 
+``` js
 // => -5
-min([-5, -3, 0, 3, 5])
+_.min([-5, -3, 0, 3, 5])
+
+// => { a: 3 }
+_.minBy([
+  { a: 3 },
+  { a: 4 }
+], x => x.a)
 ```
