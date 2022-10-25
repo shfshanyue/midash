@@ -16,19 +16,19 @@ describe('chunk', function () {
     expect(actual).toEqual(
       [
         [
-          "a",
-          "b",
-          "c"
+          'a',
+          'b',
+          'c'
         ],
         [
-          "d",
-          "e",
-          "f"
+          'd',
+          'e',
+          'f'
         ],
         [
-          "g",
-          "h",
-          "i"
+          'g',
+          'h',
+          'i'
         ]
       ])
   })

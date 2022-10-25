@@ -148,8 +148,43 @@ merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
 ## Array
 
 ### chunk
+
+对数组按照 `size` 进行分组。
+
+``` js
+//=> [[0, 1, 2], [3, 4, 5]]
+_.chunk([0, 1, 2, 3, 4, 5], 3)
+
+//=> [[0], [1], [2]]
+_.chunk([0, 1, 2])
+
+//=> [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]
+_.chunk('abcdefghi', 3)
+```
+
 ### sample
+
+从一个数组中随机获取值。
+
+``` js
+// get a random element from [0, 3, 6, 10]
+_.sample([0, 3, 6, 10])
+
+//=> undefined
+_.sample([])
+```
+
 ### sampleSize
+
+从一个数组中随机获取 `n` 个值。
+
+``` js
+//=> Maybe [1, 2]
+_.sampleSize([1, 2, 3], 2)
+ 
+//=> [1, 2, 3]
+_.sampleSize([1, 2, 3], 4)
+```
 
 ### difference/differenceBy
 
@@ -168,8 +203,30 @@ differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
 
 ### shuffle
 ### uniq
-### groupBy
+
 ### keyBy
+
+根据条件生成键，并对数组转化为对象。
+
+``` js
+const list = [
+  { id: 1, name: 'hello' },
+  { id: 2, name: 'world' },
+]
+
+//=> { '1': { id: 1, name: 'hello' }, '2', { id: 2, name: 'world' } }
+_.keyBy(list, x => id)
+```
+
+### groupBy
+
+根据条件对数组进行分组。
+
+``` js
+//=> { '3': ['one', 'two'], '5': ['three'] }
+_.groupBy(['one', 'two', 'three'], x => x.length)
+```
+
 ### get
 
 ## String
@@ -264,6 +321,25 @@ _.flowRight(double, square)(10)
 ```
 
 ### range
+
+获取序列数组。
+
+``` js
+//=> [0, 1, 2, 3]
+range(4)
+
+//=> [0, -1, -2, -3]
+range(-4)
+
+//=> [1, 2, 3, 4]
+range(1, 5)
+
+//=> [5, 4, 3, 2]
+range(5, 1)
+
+//=> [0, -1, -2, -3]
+range(0, -4, -1)
+```
 
 ## Math
 

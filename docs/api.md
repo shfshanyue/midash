@@ -143,8 +143,44 @@ merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
 ## Array
 
 ### chunk
+
+Get an array of elements split into chunk by size.
+
+``` js
+//=> [[0, 1, 2], [3, 4, 5]]
+_.chunk([0, 1, 2, 3, 4, 5], 3)
+
+//=> [[0], [1], [2]]
+_.chunk([0, 1, 2])
+
+//=> [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]
+_.chunk('abcdefghi', 3)
+```
+
 ### sample
+
+Get a random element from an array.
+
+``` js
+// get a random element from [0, 3, 6, 10]
+_.sample([0, 3, 6, 10])
+
+//=> undefined
+_.sample([])
+```
+
 ### sampleSize
+
+Get `n` random element from an array.
+
+``` js
+//=> Maybe [1, 2]
+_.sampleSize([1, 2, 3], 2)
+ 
+//=> [1, 2, 3]
+_.sampleSize([1, 2, 3], 4)
+```
+
 ### difference/differenceBy
 
 :::  tip
@@ -161,8 +197,26 @@ differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
 ```
 ### shuffle
 ### uniq
-### groupBy
+
 ### keyBy
+
+``` js
+const list = [
+  { id: 1, name: 'hello' },
+  { id: 2, name: 'world' },
+]
+
+//=> { '1': { id: 1, name: 'hello' }, '2', { id: 2, name: 'world' } }
+_.keyBy(list, x => id)
+```
+
+### groupBy
+
+``` js
+//=> { '3': ['one', 'two'], '5': ['three'] }
+_.groupBy(['one', 'two', 'three'], x => x.length)
+```
+
 ### get
 
 ## String
@@ -259,6 +313,25 @@ _.flowRight(double, square)(10)
 ```
 
 ### range
+
+Get the range of numbers.
+
+``` js
+//=> [0, 1, 2, 3]
+range(4)
+
+//=> [0, -1, -2, -3]
+range(-4)
+
+//=> [1, 2, 3, 4]
+range(1, 5)
+
+//=> [5, 4, 3, 2]
+range(5, 1)
+
+//=> [0, -1, -2, -3]
+range(0, -4, -1)
+```
 
 ## Math
 

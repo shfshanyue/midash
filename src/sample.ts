@@ -1,4 +1,6 @@
-export function sample<T>(list: T[]) {
+import { random } from './random'
+
+export function sample<T>(list: T[] = []) {
   const len = list.length
-  return len ? list[Math.floor(Math.random() * len)] : undefined
+  return len ? list[random(len - 1)] : undefined
 }
