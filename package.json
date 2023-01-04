@@ -5,12 +5,11 @@
   "sideEffects": false,
   "license": "MIT",
   "exports": {
-    "require": "./dist/index.js",
-    "default": "./dist/index.modern.mjs"
+    "require": "./dist/index.cjs.js",
+    "default": "./dist/index.esm.js"
   },
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.module.js",
-  "unpkg": "./dist/index.umd.js",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -21,7 +20,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "microbundle --compress false",
+    "build": "tsup",
     "test": "tsdx test",
     "lint": "eslint",
     "prepare": "npm run build",
@@ -46,11 +45,11 @@
   "repository": "shfshanyue/midash",
   "size-limit": [
     {
-      "path": "dist/midash.cjs.production.min.js",
+      "path": "dist/index.cjs.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/midash.esm.js",
+      "path": "dist/index.esm.js",
       "limit": "10 KB"
     }
   ],
@@ -65,6 +64,7 @@
     "size-limit": "^8.1.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.1",
+    "tsup": "^6.5.0",
     "typescript": "^4.9.4",
     "vuepress": "^2.0.0-beta.51"
   },
