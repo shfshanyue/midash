@@ -69,6 +69,27 @@
     "typescript": "^5.0.2",
     "vuepress": "^2.0.0-beta.51"
   },
+  "release-it": {
+    "git": {
+      "push": true,
+      "commit": true,
+      "tag": true,
+      "requireCommits": false,
+      "requireCleanWorkingDir": false
+    },
+    "github": {
+      "release": true,
+      "draft": true
+    },
+    "npm": {
+      "publish": true,
+      "ignoreVersion": false
+    },
+    "hooks": {
+      "before:init": "npm test && npm run build",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    }
+  },
   "keywords": [
     "utils",
     "utilities",
