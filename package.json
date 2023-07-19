@@ -62,6 +62,7 @@
     "microbundle": "^0.15.1",
     "release-it": "^16.1.2",
     "size-limit": "^8.2.6",
+    "time-span": "^4.0.0",
     "ts-jest": "^29.1.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.6.0",
