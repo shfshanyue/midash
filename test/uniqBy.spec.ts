@@ -17,17 +17,14 @@ describe('sampleSize', function () {
     const actual = uniqBy(list, Math.floor)
 
     expect(actual).toEqual([1.1, 2.5, 3.5, 4.1, 5.4, 6.3])
+
+    const actualObj = uniqBy(testData, item => item.id)
+
+    expect(actualObj).toEqual([{ id: 1, name: 'Tom' }, { id: 2, name: 'Jerry' }, { id: 3, name: 'Spike' }])
+
+    const actualString = uniqBy(testStrings, item => item)
+
+    expect(actualString).toEqual(['Tom', 'Jerry', 'Spike'])
   })
 
-  it('should work', function () {
-    const actual = uniqBy(testData, item => item.id)
-
-    expect(actual).toEqual([{ id: 1, name: 'Tom' }, { id: 2, name: 'Jerry' }, { id: 3, name: 'Spike' }])
-  })
-
-  it('should work', function () {
-    const actual = uniqBy(testStrings, item => item)
-
-    expect(actual).toEqual(['Tom', 'Jerry', 'Spike'])
-  })
 })
