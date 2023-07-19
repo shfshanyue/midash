@@ -20,13 +20,13 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install deps and build (with cache)
-        uses: pnpm i
+        uses: npm i
 
       - name: Lint
-        run: pnpm lint
+        run: npm lint
 
       - name: Test
-        run: pnpm test --ci --coverage --maxWorkers=2
+        run: npm test --ci --coverage --maxWorkers=2
 
       - name: Build
-        run: pnpm build
+        run: npm build
