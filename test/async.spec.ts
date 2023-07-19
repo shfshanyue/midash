@@ -112,7 +112,7 @@ describe('async retry', function () {
     const result = 100
     let isCalled: boolean
   
-    await retry(
+    const r = await retry(
       async () => {
         if (isCalled) {
           return result
@@ -129,6 +129,7 @@ describe('async retry', function () {
       }
     )
   
-    expect(Date.now()).toBeGreaterThan(start + waitFor)
+    expect(Date.now()).toBeGreaterThanOrEqual(start + waitFor)
+    expect(r).toEqual(result)
   })
 })
