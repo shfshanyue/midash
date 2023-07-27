@@ -202,6 +202,7 @@ differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
 ```
 
 ### shuffle
+
 ### uniq
 
 ### keyBy
@@ -229,10 +230,25 @@ _.groupBy(['one', 'two', 'three'], x => x.length)
 
 ### get
 
+### compact
+
+过滤掉数组中的假值( `false`、`undefined`、`null`、`''`、`0`), 并返回新数组。
+
+``` js
+_.compact([1, 0, 2, false]) // [1, 2]
+
+_.compact({}, undefined, null, 3) // [{}, 3]
+
+_.compact(["a", "b", "c", "", "d"]) // ["a", "b", "c", "d"]
+
+```
+
 ## String
 
 ### camelCase
+
 ### snakeCase
+
 ### kebabCase
 
 ## String
