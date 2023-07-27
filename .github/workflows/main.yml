@@ -7,7 +7,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ['14.x', '16.x']
+        node: ['14.x', '16.x', '18.x']
         os: [ubuntu-latest]
 
     steps:
@@ -20,7 +20,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install deps and build (with cache)
-        uses: npm i
+        run: npm i
 
       - name: Lint
         run: npm lint
