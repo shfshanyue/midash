@@ -1,7 +1,7 @@
 {
   "name": "midash",
   "description": "An alternative to lodash with the same API.",
-  "version": "0.8.6",
+  "version": "0.9.0",
   "sideEffects": false,
   "license": "MIT",
   "exports": {
@@ -45,11 +45,11 @@
   "size-limit": [
     {
       "path": "dist/index.cjs.js",
-      "limit": "10 KB"
+      "limit": "20 KB"
     },
     {
       "path": "dist/index.esm.js",
-      "limit": "10 KB"
+      "limit": "20 KB"
     }
   ],
   "devDependencies": {

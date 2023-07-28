@@ -5,7 +5,7 @@
 ![Type Support](https://badgen.net/npm/types/midash)
 ![Tree Shaking Support](https://badgen.net/bundlephobia/tree-shaking/midash)
 ![Npm Month Downloads](https://badgen.net/npm/dw/midash)
-![Gzip Size](https://badgen.net/bundlephobia/minzip/midash)
+[![Gzip Size](https://img.badgesize.io/https://unpkg.com/midash/dist/index.esm.js?compression=gzip)](https://unpkg.com/midash/dist/index.esm.js)
 
 An alternative to `lodash` with the same API. 
 
@@ -14,11 +14,11 @@ An alternative to `lodash` with the same API.
 + 💪 Support Tree Shaking
 + 👫 Support Typescript
 + 🔥 Smaller Size (with ES6+ API)
-+ 📦 1.5kb mini library
++ 📦 2.5kb mini library
 
 ## API
 
-[Documentation](https://midash.devtool.tech/)
+[Documentation](https://midash.devtool.tech/) [中文文档](https://midash.devtool.tech/zh/api.html)
 
 ## Installation
 
