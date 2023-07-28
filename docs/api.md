@@ -219,6 +219,32 @@ _.groupBy(['one', 'two', 'three'], x => x.length)
 
 ### get
 
+### zip
+Creates an array of grouped elements, the first of which contains the first elements of the given arrays, the second of which contains the second elements of the given arrays, and so on.
+```  js
+// => [[1, 'a', true],[2, 'b', false],[3, 'c', undefined]];
+_.zip([1, 2, 3], ['a', 'b', 'c'], [true, false]);
+
+// => [[undefined, 1], [undefined, 2], [undefined, 3]];
+_.zip([],[1, 2, 3])
+
+// => [[1, 'a', undefined], [2, 'b', undefined],[undefined, 'c', undefined]];
+_.zip([1, 2], ['a', 'b', 'c'], [])
+```
+### unzip
+This method is like _.zip except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.
+
+``` js
+// => [[1, 2, 3], ['a', 'b', 'c'], [true, false, true]]
+_.unzip([[1, 'a', true], [2, 'b', false], [3, 'c', true]])
+
+// => []
+_.unzip([])
+
+// => [[1, 2, 4], ['a', 'b', 'c'], [undefined, 3, undefined]]
+_.unzip([[1, 'a'], [2, 'b', 3], [4, 'c']])
+```
+
 ## String
 
 ### camelCase
