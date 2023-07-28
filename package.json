@@ -19,7 +19,6 @@
     "node": ">=14"
   },
   "scripts": {
-    "start": "tsdx watch",
     "build": "tsup",
     "test": "jest",
     "lint": "eslint",
