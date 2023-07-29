@@ -6,3 +6,4 @@ package-lock.json
 .cache
 .temp
 .idea
+coverage
