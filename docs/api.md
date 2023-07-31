@@ -140,6 +140,20 @@ Merges one or more objects into first object recursively and return new object.
 merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
 ```
 
+### mapKeys
+
+``` js
+//=> { a3: 3, b4: 4 }
+mapKeys({ a: 3, b: 4 }, (v, k) => `${k}${v}`)
+```
+
+### mapValues
+
+``` js
+//=> { a: 4, b: 5 }
+mapValues({ a: 3, b: 4 }, (v) => v + 1)
+```
+
 ## Array
 
 ### chunk

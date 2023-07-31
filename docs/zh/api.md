@@ -269,6 +269,19 @@ _.unzip([])
 _.unzip([[1, 'a'], [2, 'b', 3], [4, 'c']])
 ```
 
+### mapKeys
+
+``` js
+//=> { a3: 3, b4: 4 }
+mapKeys({ a: 3, b: 4 }, (v, k) => `${k}${v}`)
+```
+
+### mapValues
+
+``` js
+//=> { a: 4, b: 5 }
+mapValues({ a: 3, b: 4 }, (v) => v + 1)
+```
 
 ## String
 
