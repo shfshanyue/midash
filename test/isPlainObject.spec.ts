@@ -9,5 +9,6 @@ describe('isObject', function() {
     expect(isPlainObject(() => {})).toBe(false)
     expect(isPlainObject(new Date())).toBe(false)
     expect(isPlainObject(3)).toBe(false)
+    expect(isPlainObject(Object.create({ a: 3 }))).toBe(false)
   })
 })
