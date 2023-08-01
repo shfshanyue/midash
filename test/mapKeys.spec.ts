@@ -16,6 +16,24 @@ describe('mapKeys', function () {
       4: 4
     })
   })
+
+  it('should work with type', () => {
+    type Input = {
+      a: number,
+      b: number,
+      c?: number
+    }
+    const input: Input = {
+      a: 3,
+      b: 4
+    }
+    // expect type same with Input
+    const actual = mapKeys(input, String)
+    expect(actual).toStrictEqual({
+      3: 3,
+      4: 4
+    })
+  })
 })
 
 describe('mapValues', function () {
