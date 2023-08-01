@@ -1,5 +1,5 @@
 import { defaultTheme } from '@vuepress/theme-default'
-import { getDirname, logger, path } from '@vuepress/utils'
+import { path } from '@vuepress/utils'
 
 export default {
   head: [
@@ -11,7 +11,7 @@ export default {
         sizes: '16x16',
         href: `/midash.svg`,
       },
-    ]
+    ],
   ],
   locales: {
     '/': {
@@ -47,7 +47,7 @@ export default {
           {
             text: 'API Documentation',
             link: '/api',
-          }
+          },
         ],
         editLinkText: 'Edit this page on GitHub',
       },
@@ -65,7 +65,7 @@ export default {
           {
             text: 'API 文档',
             link: '/zh/api',
-          }
+          },
         ],
         selectLanguageName: '简体中文',
         selectLanguageText: '选择语言',
@@ -95,6 +95,6 @@ export default {
     {
       name: 'midash API',
       clientConfigFile: path.resolve(__dirname, './midash.ts'),
-    }
-  ]
+    },
+  ],
 }
