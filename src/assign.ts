@@ -1,15 +1,8 @@
-type ObjectWithAnyProperties = { [key: string]: any };
-
-export function assign(target: ObjectWithAnyProperties | null , ...sources: Array<ObjectWithAnyProperties | null | undefined>): ObjectWithAnyProperties {
-    if (target === null) {
-        throw new TypeError('Cannot convert undefined or null to object');
+export function assign(target: object | null, ...sources: Array<object | null>): object {
+    if (target === null || target === undefined) {
+        target = {};
     }
 
-    sources.forEach(source => {
-        if (source != null) {
-            Object.assign(target, source);
-        }
-    });
-
-    return target;
+    sources = sources.filter(source => source !== null && source !== undefined);
+    return Object.assign(target, ...sources);
 }

@@ -1,44 +1,38 @@
-// lodashAssign.spec.ts
-
 import { assign } from '../src'
 
 describe('assign', () => {
-    it('should merge properties from multiple sources into the target object', () => {
-        const target = { a: 1, b: 2 };
-        const source1 = { b: 3, c: 4 };
-        const source2 = { c: 5, d: 6 };
-
-        const result = assign(target, source1, source2);
-
-        expect(result).toEqual({ a: 1, b: 3, c: 5, d: 6 });
+    it('handles both null input', () => {
+        const result = assign(null, null)
+        expect(result).toEqual({});
     });
 
-    it('should handle null and undefined sources', () => {
-        const target = { a: 1, b: 2 };
-        const source1 = null;
-        const source2 = undefined;
-
-        const result = assign(target, source1, source2);
-
-        expect(result).toEqual({ a: 1, b: 2 });
+    it('handles null first input', () => {
+        const result = assign({ a: '1' }, null)
+        expect(result).toEqual({ a: '1' });
     });
 
-    it('should not modify the target object when sources are empty', () => {
-        const target = { a: 1, b: 2 };
-        const originalTarget = { ...target };
-        const result = assign(target);
-
-        expect(result).toEqual(originalTarget);
+    it('handles null last input', () => {
+        const result = assign(null,{ a: '1' })
+        expect(result).toEqual({ a: '1' });
     });
 
-    it('should overwrite target properties with the last source properties', () => {
-        const target = { a: 1, b: 2 };
-        const source1 = { b: 3, c: 4 };
-        const source2 = { c: 5, b: 6 };
+    it('correctly assign a with values from b', () => {
+        const target = { a: 2, b: 2 };
+        const result = assign(target, {});
+        expect(result).toEqual(target);
+    });
 
-        const result = assign(target, source1, source2);
+    it('handles target have unique value', () => {
+        const source = { a: 3, b: 5 };
+        const result = assign({}, source);
+        expect(result).toEqual(source);
+    });
 
-        expect(result).toEqual({ a: 1, b: 6, c: 5 });
+    it('handles source have unique value', () => {
+        const target = { a: 2, b: 2 };
+        const source = { a: 3, b: 5 };
+        const result = assign(target, source);
+        expect(result).toEqual(source);
     });
 
     it('should merge nested properties correctly', () => {

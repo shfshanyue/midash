@@ -142,18 +142,24 @@ merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
 
 ### assign
 Assigns own enumerable string keyed properties of source objects to the destination object. Source objects are applied from left to right. Subsequent sources overwrite property assignments of previous sources.
+
 ``` js
 // => { a: 1, b: 3, c: 5, d: 6 }
 _.assign({ a: 1, b: 2 }, { b: 3, c: 4 }, { c: 5, d: 6 })
+```
 
-// => { a: 1, b: 2 }
-_.assign({ a: 1, b: 2 }, null, undefined)
+### mapKeys
 
-// => { a: 1, b: 2 }
-_.assign({ a: 1, b: 2 })
+``` js
+//=> { a3: 3, b4: 4 }
+mapKeys({ a: 3, b: 4 }, (v, k) => `${k}${v}`)
+```
 
-// => { a: { d: 6, e: 7 } }
-_.assign({ a: { b: 2, c: 3 }, { a: { c: 4, d: 5 }, { a: { d: 6, e: 7 })
+### mapValues
+
+``` js
+//=> { a: 4, b: 5 }
+mapValues({ a: 3, b: 4 }, (v) => v + 1)
 ```
 
 ## Array
