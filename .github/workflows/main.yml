@@ -18,15 +18,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+        
+      - name: Setup pnpm
+        run: corepack enable
 
       - name: Install deps and build (with cache)
-        run: npm i
+        run: pnpm i
 
       - name: Lint
-        run: npm run lint
+        run: pnpm lint
 
       - name: Test
-        run: npm run test --ci --coverage --maxWorkers=2
+        run: pnpm test -- run --coverage
 
       - name: Build
-        run: npm run build
+        run: pnpm build

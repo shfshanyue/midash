@@ -23,8 +23,12 @@ An alternative to `lodash` with the same API.
 ## Installation
 
 ``` bash
+# yarn
 $ yarn add midash
+# pnpm
+$ pnpm i midash
 ```
+
 
 ``` js
 import { sum } from 'midash'
