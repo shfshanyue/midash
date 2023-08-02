@@ -341,7 +341,7 @@ _.castArray(undefined);
 _.castArray();
 // => []
  
-var array = [1, 2, 3];
+const array = [1, 2, 3];
 console.log(_.castArray(array) === array);
 // => true
 
