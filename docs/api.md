@@ -293,7 +293,32 @@ _.random()
 ```
 
 ## Lang
+### castArray
+Casts value as an array if it's not one.
+``` js
+_.castArray(1);
+// => [1]
+ 
+_.castArray({ 'a': 1 });
+// => [{ 'a': 1 }]
+ 
+_.castArray('abc');
+// => ['abc']
+ 
+_.castArray(null);
+// => [null]
+ 
+_.castArray(undefined);
+// => [undefined]
+ 
+_.castArray();
+// => []
+ 
+var array = [1, 2, 3];
+console.log(_.castArray(array) === array);
+// => true
 
+```
 ### isArray
 
 ``` js
