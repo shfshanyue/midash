@@ -140,6 +140,14 @@ Merges one or more objects into first object recursively and return new object.
 merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
 ```
 
+### assign
+Assigns own enumerable string keyed properties of source objects to the destination object. Source objects are applied from left to right. Subsequent sources overwrite property assignments of previous sources.
+
+``` js
+// => { a: 1, b: 3, c: 5, d: 6 }
+_.assign({ a: 1, b: 2 }, { b: 3, c: 4 }, { c: 5, d: 6 })
+```
+
 ### mapKeys
 
 ``` js
