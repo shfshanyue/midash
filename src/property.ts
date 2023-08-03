@@ -1,14 +1,7 @@
-type PropertyPath = string | number | symbol;
+import { get } from './get'
 
-export function property<T extends object, K extends PropertyPath>(path: K) {
-  return (obj: T) => {
-    const keys = String(path).split('.');
-    let result: any = obj;
-    
-    for (const key of keys) {
-      result = result?.[key];
-    }
-    
-    return result;
-  };
+type PropertyFunction<T> = (obj: T) => any;
+
+export function property<T>(path: Array<string | number> | string): PropertyFunction<T> {
+  return (obj: T) => get(obj as Record<string, any>, path as string | string[] | number[]); 
 }
