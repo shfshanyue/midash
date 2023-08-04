@@ -410,21 +410,7 @@ const square = x => x * x
 _.compose(double, square)(10)
 _.flowRight(double, square)(10)
 ```
-### property
 
-创建一个返回给定对象的 path 的值的函数。
-``` js
-const objects = [
-  { 'a': { 'b': 2 } },
-  { 'a': { 'b': 1 } }
-];
-// => [2, 1]
-_.map(objects, _.property('a.b'));
-
-// => [1, 2]
-_.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
-
-```
 ### range
 
 获取序列数组。

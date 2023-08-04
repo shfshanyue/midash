@@ -385,22 +385,6 @@ _.compose(double, square)(10)
 _.flowRight(double, square)(10)
 ```
 
-### property
-
-Creates a function that returns the value at path of a given object.
-``` js
-const objects = [
-  { 'a': { 'b': 2 } },
-  { 'a': { 'b': 1 } }
-];
-// => [2, 1]
-_.map(objects, _.property('a.b'));
-
-// => [1, 2]
-_.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
-
-```
-
 ### range
 
 Get the range of numbers.
