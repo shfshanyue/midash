@@ -446,6 +446,37 @@ range(5, 1)
 range(0, -4, -1)
 ```
 
+### once
+
+只会调用一次的函数。
+
+``` js
+// `initialize` 只能调用 `createApplication` 一次。
+const initialize = _.once(createApplication);
+initialize();
+initialize();
+```
+
+### memoize
+
+创建一个会缓存 func 结果的函数。
+
+``` js
+const object = { 'a': 1, 'b': 2 };
+const other = { 'c': 3, 'd': 4 };
+
+// => [1, 2]
+const values = memoize(Object.values,);
+values(object);
+
+// => [3, 4]
+values(other);
+
+object.a = 2;
+// => [1, 2]
+values(object);
+```
+
 ## Math
 
 ### sum

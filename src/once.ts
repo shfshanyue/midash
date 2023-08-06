@@ -1,9 +1,9 @@
-export function once(fn: Function) {
+export function once<T extends any[]>(fn: (...args: T) => any) {
   let called = false;
-  return function () {
+  return (...args: T) => {
     if (!called) {
       called = true;
-      return fn(...arguments);
+      return fn(...args);
     }
   }
 }

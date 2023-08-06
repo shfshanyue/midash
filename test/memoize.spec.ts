@@ -1,4 +1,4 @@
-import { memorize } from '../src'
+import { memoize } from '../src'
 
 describe('memorize', function () {
   it('memorize function should return cached result when input is same', () => {
@@ -7,7 +7,7 @@ describe('memorize', function () {
       count++
       return x * x
     }
-    const memoizedFunction = memorize(fn)
+    const memoizedFunction = memoize(fn)
 
     const firstResult = memoizedFunction(5)  // 输出 25，这次需要计算
     const secondResult = memoizedFunction(5)  // 输出 25，这次直接从缓存中获取结果，不需要计算

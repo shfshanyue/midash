@@ -1,11 +1,11 @@
-export function memorize(fn: Function) {
+export function memoize<T extends any[]>(fn: (...args: T) => any) {
   let cache: { [key: string]: any } = {};
-  return function (...args: any[]) {
-    let key = JSON.stringify(args);
+  return (...args: T) => {
+    let key = args[0];
     if (cache[key] !== undefined) {
       return cache[key];
     } else {
-      let result = fn(args);
+      let result = fn(...args);
       cache[key] = result;
       return result;
     }
