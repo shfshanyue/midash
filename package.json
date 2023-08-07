@@ -1,7 +1,7 @@
 {
   "name": "midash",
   "description": "An alternative to lodash with the same API.",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "sideEffects": false,
   "license": "MIT",
   "exports": {
@@ -96,7 +96,7 @@
       "ignoreVersion": false
     },
     "hooks": {
-      "before:init": "pnpm test && pnpm run build",
+      "before:init": "CI=true pnpm test && pnpm run build",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
   },

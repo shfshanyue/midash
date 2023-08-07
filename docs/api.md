@@ -293,7 +293,32 @@ _.random()
 ```
 
 ## Lang
+### castArray
+Casts value as an array if it's not one.
+``` js
+_.castArray(1);
+// => [1]
+ 
+_.castArray({ 'a': 1 });
+// => [{ 'a': 1 }]
+ 
+_.castArray('abc');
+// => ['abc']
+ 
+_.castArray(null);
+// => [null]
+ 
+_.castArray(undefined);
+// => [undefined]
+ 
+_.castArray();
+// => []
+ 
+const array = [1, 2, 3];
+console.log(_.castArray(array) === array);
+// => true
 
+```
 ### isArray
 
 ``` js
@@ -358,6 +383,53 @@ const square = x => x * x
 //=> 200
 _.compose(double, square)(10)
 _.flowRight(double, square)(10)
+```
+
+### property
+
+Creates a function that returns the value at path of a given object.
+``` js
+const objects = [
+  { 'a': { 'b': 2 } },
+  { 'a': { 'b': 1 } }
+];
+// => [2, 1]
+_.map(objects, _.property('a.b'));
+
+// => [1, 2]
+_.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
+
+```
+
+### once
+
+只会调用一次的函数。
+
+``` js
+// `initialize` 只能调用 `createApplication` 一次。
+const initialize = _.once(createApplication);
+initialize();
+initialize();
+```
+
+### memoize
+
+创建一个会缓存 func 结果的函数。
+
+``` js
+const object = { 'a': 1, 'b': 2 };
+const other = { 'c': 3, 'd': 4 };
+
+// => [1, 2]
+const values = memoize(Object.values,);
+values(object);
+
+// => [3, 4]
+values(other);
+
+object.a = 2;
+// => [1, 2]
+values(object);
 ```
 
 ### range

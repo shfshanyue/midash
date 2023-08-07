@@ -320,6 +320,33 @@ _.random()
 
 ## Lang
 
+### castArray
+如果 value 不是数组, 那么强制转为数组。
+``` js
+_.castArray(1);
+// => [1]
+ 
+_.castArray({ 'a': 1 });
+// => [{ 'a': 1 }]
+ 
+_.castArray('abc');
+// => ['abc']
+ 
+_.castArray(null);
+// => [null]
+ 
+_.castArray(undefined);
+// => [undefined]
+ 
+_.castArray();
+// => []
+ 
+const array = [1, 2, 3];
+console.log(_.castArray(array) === array);
+// => true
+
+```
+
 ### isArray
 
 ``` js
@@ -383,7 +410,21 @@ const square = x => x * x
 _.compose(double, square)(10)
 _.flowRight(double, square)(10)
 ```
+### property
 
+创建一个返回给定对象的 path 的值的函数。
+``` js
+const objects = [
+  { 'a': { 'b': 2 } },
+  { 'a': { 'b': 1 } }
+];
+// => [2, 1]
+_.map(objects, _.property('a.b'));
+
+// => [1, 2]
+_.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
+
+```
 ### range
 
 获取序列数组。
@@ -403,6 +444,37 @@ range(5, 1)
 
 //=> [0, -1, -2, -3]
 range(0, -4, -1)
+```
+
+### once
+
+只会调用一次的函数。
+
+``` js
+// `initialize` 只能调用 `createApplication` 一次。
+const initialize = _.once(createApplication);
+initialize();
+initialize();
+```
+
+### memoize
+
+创建一个会缓存 func 结果的函数。
+
+``` js
+const object = { 'a': 1, 'b': 2 };
+const other = { 'c': 3, 'd': 4 };
+
+// => [1, 2]
+const values = memoize(Object.values,);
+values(object);
+
+// => [3, 4]
+values(other);
+
+object.a = 2;
+// => [1, 2]
+values(object);
 ```
 
 ## Math
