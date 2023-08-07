@@ -96,7 +96,7 @@
       "ignoreVersion": false
     },
     "hooks": {
-      "before:init": "pnpm test && pnpm run build",
+      "before:init": "CI=true pnpm test && pnpm run build",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
   },
