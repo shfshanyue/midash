@@ -31,7 +31,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "pnpm lint"
     }
   },
   "prettier": {
@@ -79,7 +79,6 @@
     "release-it": "^16.2.1",
     "size-limit": "^10.0.2",
     "time-span": "^5.1.0",
-    "tsdx": "^0.14.1",
     "tslib": "^2.6.2",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
