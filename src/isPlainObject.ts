@@ -6,7 +6,7 @@ export function isPlainObject(value?: any) {
   }
 
   // if Object.create(null)
-  if (Object.getPrototypeOf(value) === null) { 
+  if (Object.getPrototypeOf(value) === null) {
     return true
   }
 

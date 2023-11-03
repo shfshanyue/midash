@@ -5,7 +5,9 @@ describe('pickBy', function() {
 
   it('should work', function() {
     expect(pickBy(object, x => x === 3)).toEqual({ c: 3 })
-    expect(pickBy(object, undefined as unknown as () => boolean)).toEqual(object)
+    expect(pickBy(object, (undefined as unknown) as () => boolean)).toEqual(
+      object
+    )
 
     expect(pickBy({ a: undefined })).toEqual({})
   })

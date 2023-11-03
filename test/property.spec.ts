@@ -64,7 +64,7 @@ describe('property function', () => {
   it('should handle array inputs', () => {
     const getFirstElement = property('0')
     const getNestedElement = property('1.0')
-    const getArrayElement = property(['1', '0']);
+    const getArrayElement = property(['1', '0'])
     expect(getFirstElement([1, 2, 3])).toBe(1)
     expect(
       getNestedElement([
@@ -72,6 +72,11 @@ describe('property function', () => {
         [3, 4],
       ])
     ).toBe(3)
-    expect(getArrayElement([[1, 2], [3, 4]])).toBe(3);
+    expect(
+      getArrayElement([
+        [1, 2],
+        [3, 4],
+      ])
+    ).toBe(3)
   })
 })

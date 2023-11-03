@@ -9,8 +9,11 @@ export function omit(obj: object, paths: string[] = []) {
   if (!obj) {
     return {}
   }
-  return paths.reduce((acc, key) => {
-    delete acc[key]
-    return acc
-  }, { ...obj } as any)
+  return paths.reduce(
+    (acc, key) => {
+      delete acc[key]
+      return acc
+    },
+    { ...obj } as any
+  )
 }

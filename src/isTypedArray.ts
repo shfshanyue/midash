@@ -9,8 +9,10 @@ type TypedArray =
   | BigUint64Array
   | BigInt64Array
   | Float32Array
-  | Float64Array;
+  | Float64Array
 
-export function isTypedArray<T extends TypedArray = TypedArray>(value?: any): value is T {
+export function isTypedArray<T extends TypedArray = TypedArray>(
+  value?: any
+): value is T {
   return value.length !== undefined && ArrayBuffer.isView(value)
 }

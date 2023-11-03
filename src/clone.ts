@@ -11,7 +11,7 @@ export function clone<T>(obj: T): T {
   }
   if (isPlainObject(obj)) {
     return {
-      ...obj
+      ...obj,
     }
   }
   // TODO: Date/Buffer/Regexp
@@ -32,7 +32,7 @@ export function cloneDeep<T extends object>(obj: T): T {
     }
     return {
       ...acc,
-      [key]: value
+      [key]: value,
     }
   }, {} as T)
 }

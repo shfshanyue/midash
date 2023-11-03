@@ -5,7 +5,7 @@ export function omitBy<T extends object>(
 
 export function omitBy<T>(
   obj: Record<string, T>,
-  predicate: (value: T, key: string) => unknown = (() => true)
+  predicate: (value: T, key: string) => unknown = () => true
 ): Record<string, T> {
   if (!obj) {
     return {}

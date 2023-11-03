@@ -3,10 +3,9 @@ export function head<T>(list?: T[]): T | undefined {
 }
 
 export function tail<T>(list?: T[]): T[] {
-  return list?.slice(1) ?? [];
+  return list?.slice(1) ?? []
 }
 
-
 export function take<T>(list?: T[], n = 1): T[] {
-  return list?.slice(0, n) ?? [];
+  return list?.slice(0, n) ?? []
 }

@@ -1,6 +1,6 @@
 export function pickBy<T>(
   obj: Record<string, T>,
-  predicate: (value: T, key: string) => unknown = ((value) => Boolean(value))
+  predicate: (value: T, key: string) => unknown = value => Boolean(value)
 ) {
   if (!obj) {
     return {}

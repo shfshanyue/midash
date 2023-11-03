@@ -5,7 +5,9 @@ export function isEqual(value: any, other: any): boolean {
     return true
   }
 
-  if (!(value && other && typeof value === 'object' && typeof other === 'object')) {
+  if (
+    !(value && other && typeof value === 'object' && typeof other === 'object')
+  ) {
     // isNaN
     return value !== other && other !== other
   }
