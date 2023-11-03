@@ -16,4 +16,3 @@ describe('castArray function', () => {
     expect(castArray()).toEqual([])
   })
 })
-

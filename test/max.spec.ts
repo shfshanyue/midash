@@ -11,13 +11,18 @@ describe('max', function() {
 
 describe('maxBy', function() {
   it('should work', function() {
-    expect(maxBy([
-      {
-        a: 3
-      },
-      {
-        a: 4
-      }
-    ], x => x.a)).toEqual({ a: 4})
+    expect(
+      maxBy(
+        [
+          {
+            a: 3,
+          },
+          {
+            a: 4,
+          },
+        ],
+        x => x.a
+      )
+    ).toEqual({ a: 4 })
   })
 })

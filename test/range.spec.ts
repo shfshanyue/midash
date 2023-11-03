@@ -1,7 +1,7 @@
 import { range } from '../src'
 
-describe('range', function () {
-  it('should work', function () {
+describe('range', function() {
+  it('should work', function() {
     expect(range(4)).toEqual([0, 1, 2, 3])
     expect(range(-4)).toEqual([0, -1, -2, -3])
 

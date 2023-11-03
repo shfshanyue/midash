@@ -1,7 +1,7 @@
 import { throttle, sleep } from '../src'
 
-describe('throttle', function () {
-  it('should work', async function () {
+describe('throttle', function() {
+  it('should work', async function() {
     let num = 0
     let func = throttle(() => num++, 500)
 

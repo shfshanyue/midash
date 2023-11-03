@@ -11,13 +11,18 @@ describe('min', function() {
 
 describe('minBy', function() {
   it('should work', function() {
-    expect(minBy([
-      {
-        a: 3
-      },
-      {
-        a: 4
-      }
-    ], x => x.a)).toEqual({ a: 3})
+    expect(
+      minBy(
+        [
+          {
+            a: 3,
+          },
+          {
+            a: 4,
+          },
+        ],
+        x => x.a
+      )
+    ).toEqual({ a: 3 })
   })
 })
