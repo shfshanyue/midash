@@ -9,7 +9,7 @@ export function get<TObject extends object, TKey extends keyof TObject>(
 export function get<
   TObject extends object,
   TKey extends keyof TObject,
-  TDefault
+  TDefault,
 >(
   object: TObject | null | undefined,
   path: TKey | [TKey],
@@ -18,12 +18,12 @@ export function get<
 export function get<
   TObject extends object,
   TKey1 extends keyof TObject,
-  TKey2 extends keyof TObject[TKey1]
+  TKey2 extends keyof TObject[TKey1],
 >(object: TObject, path: [TKey1, TKey2]): TObject[TKey1][TKey2]
 export function get<
   TObject extends object,
   TKey1 extends keyof TObject,
-  TKey2 extends keyof TObject[TKey1]
+  TKey2 extends keyof TObject[TKey1],
 >(
   object: TObject | null | undefined,
   path: [TKey1, TKey2]
@@ -32,7 +32,7 @@ export function get<
   TObject extends object,
   TKey1 extends keyof TObject,
   TKey2 extends keyof TObject[TKey1],
-  TDefault
+  TDefault,
 >(
   object: TObject | null | undefined,
   path: [TKey1, TKey2],
@@ -42,13 +42,13 @@ export function get<
   TObject extends object,
   TKey1 extends keyof TObject,
   TKey2 extends keyof TObject[TKey1],
-  TKey3 extends keyof TObject[TKey1][TKey2]
+  TKey3 extends keyof TObject[TKey1][TKey2],
 >(object: TObject, path: [TKey1, TKey2, TKey3]): TObject[TKey1][TKey2][TKey3]
 export function get<
   TObject extends object,
   TKey1 extends keyof TObject,
   TKey2 extends keyof TObject[TKey1],
-  TKey3 extends keyof TObject[TKey1][TKey2]
+  TKey3 extends keyof TObject[TKey1][TKey2],
 >(
   object: TObject | null | undefined,
   path: [TKey1, TKey2, TKey3]
@@ -58,7 +58,7 @@ export function get<
   TKey1 extends keyof TObject,
   TKey2 extends keyof TObject[TKey1],
   TKey3 extends keyof TObject[TKey1][TKey2],
-  TDefault
+  TDefault,
 >(
   object: TObject | null | undefined,
   path: [TKey1, TKey2, TKey3],
@@ -69,7 +69,7 @@ export function get<
   TKey1 extends keyof TObject,
   TKey2 extends keyof TObject[TKey1],
   TKey3 extends keyof TObject[TKey1][TKey2],
-  TKey4 extends keyof TObject[TKey1][TKey2][TKey3]
+  TKey4 extends keyof TObject[TKey1][TKey2][TKey3],
 >(
   object: TObject,
   path: [TKey1, TKey2, TKey3, TKey4]
@@ -79,7 +79,7 @@ export function get<
   TKey1 extends keyof TObject,
   TKey2 extends keyof TObject[TKey1],
   TKey3 extends keyof TObject[TKey1][TKey2],
-  TKey4 extends keyof TObject[TKey1][TKey2][TKey3]
+  TKey4 extends keyof TObject[TKey1][TKey2][TKey3],
 >(
   object: TObject | null | undefined,
   path: [TKey1, TKey2, TKey3, TKey4]
@@ -90,7 +90,7 @@ export function get<
   TKey2 extends keyof TObject[TKey1],
   TKey3 extends keyof TObject[TKey1][TKey2],
   TKey4 extends keyof TObject[TKey1][TKey2][TKey3],
-  TDefault
+  TDefault,
 >(
   object: TObject | null | undefined,
   path: [TKey1, TKey2, TKey3, TKey4],

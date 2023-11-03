@@ -1,7 +1,7 @@
 import { min, minBy } from '../src'
 
-describe('min', function() {
-  it('should work', function() {
+describe('min', function () {
+  it('should work', function () {
     expect(min([-1, 0, 1])).toEqual(-1)
     expect(min([1])).toEqual(1)
     expect(min([])).toEqual(undefined)
@@ -9,8 +9,8 @@ describe('min', function() {
   })
 })
 
-describe('minBy', function() {
-  it('should work', function() {
+describe('minBy', function () {
+  it('should work', function () {
     expect(
       minBy(
         [

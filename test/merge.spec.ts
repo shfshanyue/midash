@@ -1,7 +1,7 @@
 import { merge } from '../src'
 
-describe('merge', function() {
-  it('should work', function() {
+describe('merge', function () {
+  it('should work', function () {
     expect(
       merge(
         {
@@ -17,13 +17,13 @@ describe('merge', function() {
     })
   })
 
-  it('should work with array', function() {
+  it('should work with array', function () {
     expect(merge(['a', 'b'], ['c'])).toEqual(['c', 'b'])
   })
 
   // lodash.js Test Case
   // https://github.com/lodash/lodash/blob/master/test/merge.test.js#L8
-  it('should merge `source` into `object`', function() {
+  it('should merge `source` into `object`', function () {
     const names = {
       characters: [{ name: 'barney' }, { name: 'fred' }],
     }
@@ -46,21 +46,21 @@ describe('merge', function() {
     expect(merge(names, ages, heights)).toEqual(expected)
   })
 
-  it('should work with more arguments', function() {
+  it('should work with more arguments', function () {
     const actual = merge({ a: 1 }, { a: 2 }, { a: 3 }, { a: 4 })
 
     expect(actual).toEqual({ a: 4 })
   })
 
-  it('should work with function', function() {
-    const fn = function() {}
+  it('should work with function', function () {
+    const fn = function () {}
 
     const actual = merge({ a: fn }, { a: fn }, { a: {} })
 
     expect(actual).toEqual({ a: {} })
   })
 
-  it('should work with deepClone', function() {
+  it('should work with deepClone', function () {
     const o = {
       a: { b: 3 },
     }

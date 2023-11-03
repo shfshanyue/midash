@@ -1,6 +1,6 @@
 import { mapKeys, mapValues } from '../src'
 
-describe('mapKeys', function() {
+describe('mapKeys', function () {
   it('should work', () => {
     expect(mapKeys({ a: 1, b: 2 }, String)).toStrictEqual({
       1: 1,
@@ -36,7 +36,7 @@ describe('mapKeys', function() {
   })
 })
 
-describe('mapValues', function() {
+describe('mapValues', function () {
   it('should work', () => {
     expect(mapValues({ a: 3, b: 4 }, x => x + 1)).toStrictEqual({
       a: 4,

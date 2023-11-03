@@ -1,6 +1,6 @@
 import { once } from '../src'
 
-describe('once', function() {
+describe('once', function () {
   it('once function should only allow the inner function to be called once', () => {
     let count = 0
     const fn = () => count++

@@ -1,14 +1,14 @@
 import { omitBy } from '../src'
 
-describe('omitBy', function() {
+describe('omitBy', function () {
   const object = { a: 1, b: 2, c: 3, d: 4 }
 
-  it('should work', function() {
+  it('should work', function () {
     expect(omitBy(object, x => x === 3)).toEqual({ a: 1, b: 2, d: 4 })
-    expect(omitBy(object, (undefined as unknown) as () => boolean)).toEqual({})
+    expect(omitBy(object, undefined as unknown as () => boolean)).toEqual({})
   })
 
-  it('should work with value', function() {
+  it('should work with value', function () {
     const actual = omitBy(object, n => {
       return n === 1 || n === 3
     })
@@ -16,7 +16,7 @@ describe('omitBy', function() {
     expect(actual).toEqual({ b: 2, d: 4 })
   })
 
-  it('should work with key', function() {
+  it('should work with key', function () {
     const actual = omitBy(object, (_, n) => {
       return n === 'a' || n === 'b'
     })

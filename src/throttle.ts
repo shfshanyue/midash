@@ -7,9 +7,9 @@ export function throttle<T extends any[]>(
     if (timer) {
       return
     }
-    timer = (setTimeout(() => {
+    timer = setTimeout(() => {
       f(...args)
       timer = null
-    }, wait) as any) as number
+    }, wait) as any as number
   }
 }

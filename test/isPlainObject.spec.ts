@@ -1,7 +1,7 @@
 import { isPlainObject } from '../src'
 
-describe('isObject', function() {
-  it('should work', function() {
+describe('isObject', function () {
+  it('should work', function () {
     expect(isPlainObject({})).toBe(true)
     expect(isPlainObject(Object.create(null))).toBe(true)
 

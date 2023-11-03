@@ -1,9 +1,9 @@
 import { shuffle } from '../src'
 
-describe('sampleSize', function() {
+describe('sampleSize', function () {
   const list = [1, 2, 3, 4, 5]
 
-  it('should work', function() {
+  it('should work', function () {
     const actual = shuffle(list)
 
     expect(actual).toHaveLength(5)

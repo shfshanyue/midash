@@ -1,6 +1,6 @@
 import { memoize } from '../src'
 
-describe('memorize', function() {
+describe('memorize', function () {
   it('memorize function should return cached result when input is same', () => {
     let count = 0
     const fn = (x: number): number => {

@@ -5,8 +5,8 @@ export function debounce<T extends any[]>(
   let timer: number
   return (...args: T) => {
     clearTimeout(timer)
-    timer = (setTimeout(() => {
+    timer = setTimeout(() => {
       f(...args)
-    }, wait) as any) as number
+    }, wait) as any as number
   }
 }

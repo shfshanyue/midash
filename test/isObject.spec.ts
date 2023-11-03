@@ -1,7 +1,7 @@
 import { isObject } from '../src'
 
-describe('isObject', function() {
-  it('should work', function() {
+describe('isObject', function () {
+  it('should work', function () {
     expect(isObject({})).toBe(true)
     expect(isObject([])).toBe(true)
     expect(isObject(() => {})).toBe(true)

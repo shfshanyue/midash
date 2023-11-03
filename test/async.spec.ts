@@ -1,7 +1,7 @@
 import { retry, AbortError, filter, map, sleep } from '../src'
 import timeSpan from 'time-span'
 
-describe('async filter', function() {
+describe('async filter', function () {
   it('expect work', async () => {
     const r1 = await filter([Promise.resolve(1), 2, 3, 4], (x: any) =>
       Boolean(x % 2)
@@ -15,7 +15,7 @@ describe('async filter', function() {
   })
 })
 
-describe('async map', function() {
+describe('async map', function () {
   const input = [
     Promise.resolve(1),
     Promise.resolve(2),
@@ -84,7 +84,7 @@ describe('async map', function() {
   })
 })
 
-describe('async retry', function() {
+describe('async retry', function () {
   it('expect work', async () => {
     let i = 0
     const result = 100

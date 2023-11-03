@@ -1,7 +1,7 @@
 import { isPromise } from '../src'
 
-describe('isPromise', function() {
-  it('should work', function() {
+describe('isPromise', function () {
+  it('should work', function () {
     async function f() {}
 
     expect(isPromise(Promise.resolve())).toBe(true)

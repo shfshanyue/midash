@@ -38,11 +38,12 @@
     "printWidth": 80,
     "semi": false,
     "singleQuote": true,
-    "trailingComma": "es5"
+    "trailingComma": "es5",
+    "arrowParens": "avoid"
   },
   "eslintConfig": {
     "extends": [
-      "prettier/@typescript-eslint",
+      "prettier",
       "plugin:prettier/recommended"
     ],
     "rules": {
@@ -74,6 +75,8 @@
     "@vuepress/theme-default": "2.0.0-beta.66",
     "@vuepress/utils": "2.0.0-beta.66",
     "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "husky": "^8.0.3",
     "microbundle": "^0.15.1",
     "release-it": "^16.2.1",
