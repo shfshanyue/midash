@@ -5,7 +5,7 @@ export default defineConfig({
     includeSource: ['test/*'],
     globals: true,
     coverage: {
-      reporter: ['text'] // https://vitest.dev/guide/coverage.html#coverage-setup
-    }
+      reporter: ['text'], // https://vitest.dev/guide/coverage.html#coverage-setup
+    },
   },
 })
