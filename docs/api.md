@@ -21,7 +21,7 @@ _.get(object, 'a.b.c', 'default')
 
 ### omit
 
-Ingore attributes of object and return new object.
+Ignore attributes of object and return new object.
 
 ::: warning
 `_.omit(object, 'a', 'b')` can't work well in midash. use `_.omit(object, ['a', 'b'])` instead.
@@ -40,7 +40,7 @@ _.omit(object, ['a', 'b'])
 
 ### omitBy
 
-Ingore attributes of object by function and return new object.
+Ignore attributes of object by function and return new object.
 
 ``` js
 const object = {
@@ -85,7 +85,7 @@ _.pick(object, ['c'])
 
 ### pickBy
 
-通过函数选择 `object` 的某些属性，并返回新的 `object`。
+Pick attributes of object by function and return new object.
 
 ``` js
 const object = {
@@ -102,6 +102,8 @@ _.pickBy(object, (value, key) => key === 'a')
 
 ### defaults
 
+Assigns own enumerable properties of source objects to the destination object for all destination properties that resolve to undefined.
+
 ``` js
 //=> { mode: 'development', sourcemap: true, devtool: true }
 _.defaults({
@@ -115,6 +117,8 @@ _.defaults({
 
 ### clone
 
+Creates a shallow clone of an object.
+
 ``` js
 const o = { a: { aa: 3 }, b: 4 }
 
@@ -122,25 +126,17 @@ const o = { a: { aa: 3 }, b: 4 }
 _.clone(o).a === o.a
 ```
 
-### cloneDeep
-
-``` js
-const o = { a: { aa: 3 }, b: 4 }
-
-//=> false
-_.cloneDeep(o).a === o.a
-```
-
 ### merge
 
-Merges one or more objects into first object recursively and return new object.
+Merges one or more objects into first object recursively and returns new object.
 
 ``` js
 //=> { a: 4, b: 2 }
-merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
+_.merge({ a: 1 }, { b: 2 }, { a: 3 }, { a: 4 })
 ```
 
 ### assign
+
 Assigns own enumerable string keyed properties of source objects to the destination object. Source objects are applied from left to right. Subsequent sources overwrite property assignments of previous sources.
 
 ``` js
@@ -150,16 +146,11 @@ _.assign({ a: 1, b: 2 }, { b: 3, c: 4 }, { c: 5, d: 6 })
 
 ### mapKeys
 
+Transform the keys of an object with a function and returns a new object.
+
 ``` js
 //=> { a3: 3, b4: 4 }
-mapKeys({ a: 3, b: 4 }, (v, k) => `${k}${v}`)
-```
-
-### mapValues
-
-``` js
-//=> { a: 4, b: 5 }
-mapValues({ a: 3, b: 4 }, (v) => v + 1)
+_.mapKeys({ a: 3, b: 4 }, (v, k) => `${k}${v}`)
 ```
 
 ## Array
@@ -203,24 +194,64 @@ _.sampleSize([1, 2, 3], 2)
 _.sampleSize([1, 2, 3], 4)
 ```
 
+### shuffle
+
+Creates an array of shuffled values.
+
+``` js
+//=> [2, 3, 1] (any random order)
+_.shuffle([1, 2, 3])
+```
+
 ### difference/differenceBy
 
-:::  tip
-在 `midash` 中，`differenceBy` 是 `difference` 的别名。
+Creates an array of array values not included in the other given arrays.
+
+::: tip
+In `midash`, `differenceBy` is an alias of `difference`.
 :::
 
 ``` js
 //=> [2, 4]
-difference([1, 2, 3, 4], [1, 3, 5])
+_.difference([1, 2, 3, 4], [1, 3, 5])
 
 //=> [{ a: 4 }]
-differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
-
+_.differenceBy([{ a: 3 }, { a: 4 }], [{ a: 3 }], x => x.a)
 ```
-### shuffle
+
+### intersection
+
+Creates an array of unique values that are included in all given arrays.
+
+``` js
+//=> [2]
+_.intersection([1, 2], [2, 3])
+
+//=> [{ id: 1 }]
+_.intersection([{ id: 1 }, { id: 2 }], [{ id: 1 }, { id: 3 }], item => item.id)
+```
+
 ### uniq
 
+Creates a duplicate-free version of an array.
+
+``` js
+//=> [1, 2, 3]
+_.uniq([1, 2, 3, 1, 2])
+```
+
+### uniqBy
+
+Creates a duplicate-free version of an array using a function for comparison.
+
+``` js
+//=> [{ id: 1 }, { id: 2 }]
+_.uniqBy([{ id: 1 }, { id: 2 }, { id: 1 }], item => item.id)
+```
+
 ### keyBy
+
+Creates an object composed of keys generated from the results of running each element of collection through iteratee.
 
 ``` js
 const list = [
@@ -228,22 +259,24 @@ const list = [
   { id: 2, name: 'world' },
 ]
 
-//=> { '1': { id: 1, name: 'hello' }, '2', { id: 2, name: 'world' } }
-_.keyBy(list, x => id)
+//=> { '1': { id: 1, name: 'hello' }, '2': { id: 2, name: 'world' } }
+_.keyBy(list, x => x.id)
 ```
 
 ### groupBy
+
+Creates an object composed of keys generated from the results of running each element of collection through iteratee. The corresponding value of each key is an array of elements responsible for generating the key.
 
 ``` js
 //=> { '3': ['one', 'two'], '5': ['three'] }
 _.groupBy(['one', 'two', 'three'], x => x.length)
 ```
 
-### get
-
 ### zip
+
 Creates an array of grouped elements, the first of which contains the first elements of the given arrays, the second of which contains the second elements of the given arrays, and so on.
-```  js
+
+``` js
 // => [[1, 'a', true],[2, 'b', false],[3, 'c', undefined]];
 _.zip([1, 2, 3], ['a', 'b', 'c'], [true, false]);
 
@@ -253,7 +286,9 @@ _.zip([],[1, 2, 3])
 // => [[1, 'a', undefined], [2, 'b', undefined],[undefined, 'c', undefined]];
 _.zip([1, 2], ['a', 'b', 'c'], [])
 ```
+
 ### unzip
+
 This method is like _.zip except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.
 
 ``` js
@@ -267,19 +302,112 @@ _.unzip([])
 _.unzip([[1, 'a'], [2, 'b', 3], [4, 'c']])
 ```
 
+### compact
+
+Removes all falsey values from an array.
+
+``` js
+// => [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3])
+```
+
+### head
+
+Gets the first element of array.
+
+``` js
+// => 1
+_.head([1, 2, 3])
+
+// => undefined
+_.head([])
+```
+
+### nth
+
+Gets the element at index n of array. If n is negative, the nth element from the end is returned.
+
+``` js
+// => 2
+_.nth([1, 2, 3], 1)
+
+// => 3
+_.nth([1, 2, 3], -1)
+```
+
 ## String
 
 ### camelCase
+
+Converts string to camel case.
+
+``` js
+// => 'fooBar'
+_.camelCase('foo_bar')
+
+// => 'fooBar'
+_.camelCase('foo-bar')
+
+// => 'fooBar'
+_.camelCase('Foo Bar')
+```
+
 ### snakeCase
+
+Converts string to snake case.
+
+``` js
+// => 'foo_bar'
+_.snakeCase('fooBar')
+
+// => 'foo_bar'
+_.snakeCase('foo-bar')
+
+// => 'foo_bar'
+_.snakeCase('Foo Bar')
+```
+
 ### kebabCase
 
-## String
+Converts string to kebab case.
+
+``` js
+// => 'foo-bar'
+_.kebabCase('fooBar')
+
+// => 'foo-bar'
+_.kebabCase('foo_bar')
+
+// => 'foo-bar'
+_.kebabCase('Foo Bar')
+```
+
+### words
+
+Splits string into an array of its words.
+
+``` js
+// => ['foo', 'bar']
+_.words('foo bar')
+
+// => ['foo', 'bar']
+_.words('foo-bar', /[^, -]+/g)
+```
+
+### template
+
+Creates a compiled template function that can interpolate data properties.
+
+``` js
+// => 'Hello Fred!'
+_.template('Hello ${name}!')({ name: 'Fred' })
+```
 
 ## Number
 
 ### random
 
-Get the random integer.
+Gets a random integer between min and max (inclusive).
 
 ``` js
 // an integer between 10 and 20, includes 10 and 20
@@ -292,9 +420,33 @@ _.random(20)
 _.random()
 ```
 
+### range
+
+Creates an array of numbers (positive and/or negative) progressing from start up to, but not including, end.
+
+``` js
+//=> [0, 1, 2, 3]
+_.range(4)
+
+//=> [0, -1, -2, -3]
+_.range(-4)
+
+//=> [1, 2, 3, 4]
+_.range(1, 5)
+
+//=> [5, 4, 3, 2]
+_.range(5, 1)
+
+//=> [0, -1, -2, -3]
+_.range(0, -4, -1)
+```
+
 ## Lang
+
 ### castArray
+
 Casts value as an array if it's not one.
+
 ``` js
 _.castArray(1);
 // => [1]
@@ -317,16 +469,38 @@ _.castArray();
 const array = [1, 2, 3];
 console.log(_.castArray(array) === array);
 // => true
-
 ```
+
 ### isArray
+
+Checks if value is classified as an Array object.
 
 ``` js
 //=> true
 _.isArray([])
+
+//=> false
+_.isArray({})
+```
+
+### isBoolean
+
+Checks if value is classified as a boolean primitive.
+
+``` js
+//=> true
+_.isBoolean(false)
+
+//=> true
+_.isBoolean(true)
+
+//=> false
+_.isBoolean(null)
 ```
 
 ### isObject
+
+Checks if value is the language type of Object.
 
 ``` js
 //=> true
@@ -337,9 +511,14 @@ _.isObject([])
 
 //=> true
 _.isObject(x => {})
+
+//=> false
+_.isObject(null)
 ```
 
 ### isPlainObject
+
+Checks if value is a plain object.
 
 ``` js
 //=> true
@@ -349,32 +528,90 @@ _.isPlainObject({})
 _.isPlainObject(Object.create(null))
 
 //=> false
+_.isPlainObject([])
+
+//=> false
 _.isPlainObject(new Date())
 ```
 
 ### isPromise
 
+Checks if value is a Promise.
+
 ``` js
 //=> true
 _.isPromise(Promise.resolve())
+
+//=> false
+_.isPromise({})
+```
+
+### isPrimitive
+
+Checks if value is primitive.
+
+``` js
+//=> true
+_.isPrimitive(null)
+
+//=> true
+_.isPrimitive(undefined)
+
+//=> true
+_.isPrimitive(1)
+
+//=> true
+_.isPrimitive('string')
+
+//=> true
+_.isPrimitive(true)
+
+//=> true
+_.isPrimitive(Symbol())
+
+//=> false
+_.isPrimitive({})
+
+//=> false
+_.isPrimitive([])
 ```
 
 ### isTypedArray
 
+Checks if value is classified as a typed array.
+
 ``` js
 //=> true
 _.isTypedArray(new Uint8Array([1, 2, 3]))
+
+//=> false
+_.isTypedArray([])
 ```
 
 ### isEqual
 
-## Util
+Performs a deep comparison between two values to determine if they are equivalent.
+
+``` js
+//=> true
+_.isEqual([1, 2, 3], [1, 2, 3])
+
+//=> false
+_.isEqual([1, 2, 3], [1, 2, 4])
+
+//=> true
+_.isEqual({ a: 1, b: 2 }, { b: 2, a: 1 })
+```
+
+## Function
 
 ### compose/flowRight
 
-从右至左执行函数，并将上一个函数的返回值作为下一个函数的参数。
+Composes functions from right to left. The rightmost function can take multiple arguments, the remaining functions must be unary.
 
-`flowRight` is an alias to `compose`.
+::: tip
+In `midash`, `flowRight` is an alias of `compose`.
+:::
 
 ``` js
 const double = x => x * 2
@@ -388,6 +625,7 @@ _.flowRight(double, square)(10)
 ### property
 
 Creates a function that returns the value at path of a given object.
+
 ``` js
 const objects = [
   { 'a': { 'b': 2 } },
@@ -398,70 +636,86 @@ _.map(objects, _.property('a.b'));
 
 // => [1, 2]
 _.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
-
 ```
 
 ### once
 
-只会调用一次的函数。
+Creates a function that is restricted to be called only once. Repeat calls to the function return the value of the first invocation.
 
 ``` js
-// `initialize` 只能调用 `createApplication` 一次。
+// `initialize` can only call `createApplication` once.
 const initialize = _.once(createApplication);
 initialize();
-initialize();
+initialize(); // No effect
 ```
 
 ### memoize
 
-创建一个会缓存 func 结果的函数。
+Creates a function that memoizes the result of func.
 
 ``` js
 const object = { 'a': 1, 'b': 2 };
 const other = { 'c': 3, 'd': 4 };
 
 // => [1, 2]
-const values = memoize(Object.values,);
+const values = _.memoize(Object.values);
 values(object);
 
 // => [3, 4]
 values(other);
 
 object.a = 2;
-// => [1, 2]
+// => [1, 2] (cached result)
 values(object);
 ```
 
-### range
+### debounce
 
-Get the range of numbers.
+Creates a debounced function that delays invoking func until after wait milliseconds have elapsed since the last time the debounced function was invoked.
 
 ``` js
-//=> [0, 1, 2, 3]
-range(4)
+// Create a debounced function that will only invoke updateChart
+// after waiting at least 200ms from the last time it was called
+const debouncedUpdate = _.debounce(updateChart, 200);
 
-//=> [0, -1, -2, -3]
-range(-4)
+// Call it multiple times 
+window.addEventListener('resize', debouncedUpdate);
+```
 
-//=> [1, 2, 3, 4]
-range(1, 5)
+### throttle
 
-//=> [5, 4, 3, 2]
-range(5, 1)
+Creates a throttled function that only invokes func at most once per every wait milliseconds.
 
-//=> [0, -1, -2, -3]
-range(0, -4, -1)
+``` js
+// Create a throttled function that only invokes saveInput
+// at most once every 500ms
+const throttledSave = _.throttle(saveInput, 500);
+
+// Call it multiple times
+inputField.addEventListener('input', throttledSave);
 ```
 
 ## Math
 
 ### sum
 
+Computes the sum of the values in array.
+
+``` js
+// => 6
+_.sum([1, 2, 3])
+
+// => 0
+_.sum([])
+```
+
 ### max
 
-Get the maximum value from an array. If array is empty or falsy, `undefined` is returned.
+Gets the maximum value of collection. If collection is empty or falsey, undefined is returned.
 
-In `midash`，`maxBy` is an alias to `max`.
+::: tip
+In `midash`, `maxBy` is an alias of `max`.
+:::
 
 ``` js
 // => 5
@@ -476,10 +730,10 @@ _.maxBy([
 
 ### min
 
-Get the minimum value from an array. If array is empty or falsy, `undefined` is returned.
+Gets the minimum value of collection. If collection is empty or falsey, undefined is returned.
 
-:::  tip
-In `midash`，`minBy` is an alias to `min`.
+::: tip
+In `midash`, `minBy` is an alias of `min`.
 :::
 
 ``` js
@@ -491,4 +745,55 @@ _.minBy([
   { a: 3 },
   { a: 4 }
 ], x => x.a)
+```
+
+## Async
+
+### sleep
+
+Creates a Promise that resolves after the specified milliseconds.
+
+``` js
+// Pause execution for 1 second
+await _.sleep(1000);
+console.log('This logs after 1 second');
+```
+
+### retry
+
+Attempts to execute a function multiple times until it succeeds.
+
+``` js
+// Retry fetching data up to 3 times
+const data = await _.retry(async () => {
+  const response = await fetch('https://api.example.com/data');
+  if (!response.ok) throw new Error('Failed to fetch');
+  return response.json();
+}, { times: 3 });
+```
+
+### map
+
+Asynchronously maps over an array with concurrency control.
+
+``` js
+// Process 2 items at a time
+const results = await _.map([1, 2, 3, 4, 5], async (num) => {
+  await _.sleep(100);
+  return num * 2;
+}, { concurrency: 2 });
+// => [2, 4, 6, 8, 10]
+```
+
+### filter
+
+Asynchronously filters an array with concurrency control.
+
+``` js
+// Keep only even numbers, processing 3 at a time
+const evens = await _.filter([1, 2, 3, 4, 5, 6], async (num) => {
+  await _.sleep(100);
+  return num % 2 === 0;
+}, { concurrency: 3 });
+// => [2, 4, 6]
 ```
